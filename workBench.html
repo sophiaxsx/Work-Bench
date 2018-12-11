@@ -1,48 +1,101 @@
 <!DOCTYPE html>
-
+<html lang="en">
+<title>WorkBench</title>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
-	.F1 {   width: 20% ; height: 20% ; Background: white ; margin:auto; }
-	#d1 {display: none;}
-	#d2 {display: none;}
-	#d3 {display: none;}
-	#d4 {display: none;}
-	#d5 {display: none;}
-	#d6 {display: none;}
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+
+#submit{
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: hsl(0, 100%, 70%);;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+ }
+ 
+#submit:hover {background-color: hsl(0, 100%, 90%);}
+
+#submit:active {
+  background-color: hsl(0, 100%, 70%);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 </style>
+
+<body>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-pale-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>WorkBench</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="https://web.njit.edu/~sas238/download/IT310/workBench.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="https://web.njit.edu/~sas238/download/IT310/wb-projects.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Projects</a>
+    <a href="https://github.com/sophiaxsx/Work-Bench" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Git Hub</a>
+    <a href="https://web.njit.edu/~sas238/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sophia's Webpage</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-pink w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-pink w3-margin-right" onclick="w3_open()">☰</a>
+  <span>WorkBench</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+	  <!-- Header -->
+	  <div class="w3-container" style="margin-top:80px" id="showcase">
+		<h1 class="w3-jumbo"><b>WorkBench</b></h1>
+		<h1 class="w3-xxxlarge w3-text-pink"><b>finish what you started</b></h1>
+		<hr style="width:50px;border:5px solid pink" class="w3-round">
+	  </div>
+	  
 <form action="workBench.php">
-	<fieldset class="F1">
-		<h1 style="text-align:center">Work Bench: Finish What You Started</h1>
-		Service		<select name="choice" id = "choice"  required onchange = "g()">
-			<option value="Select"> Choose One </option>
-			<option value="add"> Add a Project </option>
-			<option value="update"> Update a Project </option>
-			<option value="show"> Find a Project </option>
-		</select> <br><br>
-		<span id = "d2"> Number	<input type=number name="number"
-			placeholder = "Enter number" autocomplete=off><br><br></span>
-		<span id = "d1"> Project ID	<input type=number name="project_ID" 
-			placeholder = "Enter project ID number" autocomplete=off><br><br></span>
-		<span id = "d3"> Name	<input type=text name="name" 
-			placeholder = "Enter project name" autocomplete=off><br><br></span>
-		<span id = "d4"> Description	<input type=text name="description" 
-			placeholder = "Enter project description" autocomplete=off><br><br></span>
-		<span id = "d5"> Status	<select name="status"><br><br>		
-			<option value="unfinished"> Unfinished </option>
-			<option value="finished"> Finished </option>
-		</select><br><br>
-		</span>
-		<span id = "d6"> Price <input type=number name="price"
-			placeholder = "Enter number" autocomplete=off><br><br></span>
-		<input type=submit><br><br>
-	</fieldset>
+	<br>
+	Service		<select name="choice"	id = "choice" required onchange = "g()">
+		<option value=""> Choose One </option>
+		<option value="add"> Add a Project </option>
+		<option value="update"> Update a Project </option>
+		<option value="show"> Find a Project </option>
+	</select> <br><br>
+	<span id = "d1"> Project ID	<input type=number name="project_ID" 
+		placeholder = "Enter project ID number" autocomplete=off><br><br></span> 
+	<span id = "d3"> Name	<input type=text name="name" 
+		placeholder = "Enter project name" autocomplete=off><br><br></span>
+	<span id = "d4"> Description	<input type=text name="description" 
+		placeholder = "Enter project description" autocomplete=off><br><br></span>
+	<span id = "d5"> Status	<select name="status"><br><br>		
+		<option value="unfinished"> Unfinished </option>
+		<option value="finished"> Finished </option>
+	</select><br><br>
+	</span>
+	<span id = "d6"> Price <input type=number name="price"
+		placeholder = "Enter number" autocomplete=off><br><br></span>
+	<button id="submit">Submit</button><br><br>
 </form>
+</body>
 
 <script>
-
 function g(){ //service option
 	var t = document.getElementById("choice")
-	var n = document.getElementById("d2")
 	var a = document.getElementById("d1")
 	var b = document.getElementById("d3")
 	var d = document.getElementById("d4")
@@ -52,14 +105,12 @@ function g(){ //service option
 	
 	if (c == "Select"){
 		a.style.display = "none";
-		n.style.display = "none";
 		b.style.display = "none";
 		d.style.display = "none";
 		f.style.display = "none";
 		h.style.display = "none";
 	}
 	if (c == "show"){
-		n.style.display = "none";
 		b.style.display = "none";
 		d.style.display = "none";
 		f.style.display = "none";
@@ -67,7 +118,6 @@ function g(){ //service option
 		a.style.display = "block";
 	}
 	if (c == "add"){
-		n.style.display = "none";
 		b.style.display = "block";
 		d.style.display = "block";
 		f.style.display = "block";
@@ -77,10 +127,10 @@ function g(){ //service option
 	if (c == "update"){
 		a.style.display = "block";
 		f.style.display = "block";
-		n.style.display = "none";
 		b.style.display = "none";
 		d.style.display = "none";
 		h.style.display = "none";
 	}
 }
 </script>
+</html>
